@@ -53,7 +53,7 @@ class DrawIoExporterPlugin(mkdocs.plugins.BasePlugin):
                 f'arguments {self.config["drawio_args"]} and '
                 f'cache directory "{self.config["cache_dir"]}"')
 
-    def on_post_page(self, output_content, page, **kwargs):
+    def on_page_content(self, output_content, page, **kwargs):
         output_content, content_sources = self.exporter.rewrite_image_embeds(
                 page.file.dest_path, output_content, self.config)
 
